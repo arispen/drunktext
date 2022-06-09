@@ -1,4 +1,4 @@
-# usage
+# drunk text generator
 import:
 ```go
 import "github.com/arispen/drunktext/drunktext"

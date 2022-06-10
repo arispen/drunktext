@@ -6,13 +6,15 @@ import (
 	"time"
 )
 
+const soberityMultiplier float32 = 1.35 // fine-tune soberity
+
 // MakeDrunk makes it's inputText look drunk based on passed
 // "percentSober" (1-100) value
 func MakeDrunk(inputText string, percentSober int) string {
 	rand.Seed(time.Now().UnixNano())
 	var outputText string
 	for _, inputLetter := range inputText {
-		changeLetter := rand.Intn(100) > percentSober
+		changeLetter := rand.Intn(100) > int(float32(percentSober)*soberityMultiplier)
 		var missedLetter rune
 		letter := []rune(strings.ToLower(string(inputLetter)))[0]
 
